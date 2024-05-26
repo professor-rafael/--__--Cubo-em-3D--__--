@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: linear-gradient(to left, blue, rgb(81, 54, 44), green);
+}
+.text {
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.container {
+   perspective: 600px;
+}
+.cube {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: spin 18s linear infinite;
+    animation-direction: alternate-reverse;
+}
+.cube__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: inset 0 0 100px #02203c;
+    outline: 1px solid #02203c;
+}
+.cube__face img {
+    max-width: 100%;
+}
+.cube-face--left {
+    transform: rotateY(-90deg) translateZ(150px);
+}
+.cube-face--front {
+    transform: rotateY(0deg) translateZ(150px);
+}
+.cube-face--back {
+    transform: rotateY(180deg) translateZ(150px);
+}
+.cube-face--right {
+    transform: rotateY(90deg) translateZ(150px);
+}
+.cube-face--top {
+    transform: rotateX(90deg) translateZ(150px);
+}
+.cube-face--bottom {
+    transform: rotateX(-90deg) translateZ(150px);
+}
+.shadow {
+    outline: none;
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 100px #000;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
